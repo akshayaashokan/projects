@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aksh.RestaurantXML">
+<class name="ResMenu" table="ResMenu">
+        <id name="dish_name" column="DISH_NAME">
+            </id>
+        <property name="category_id"/>
+        <property name="type"/>
+        <property name="price"/>
+    
+        <join table="DishMenu" inverse="true">
+            <key column="DISH_NAME"/>
+            <many-to-one name="dish" column="catId" not-null="true"/>
+        </join>
+        </class>
+</hibernate-mapping>

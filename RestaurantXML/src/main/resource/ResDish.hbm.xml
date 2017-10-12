@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aksh.RestaurantXML">
+<class name="ResDish" table="ResDish">
+        <id name="catId" column="catId">
+        <generator class="native"/>
+            </id>
+        <property name="catName"/>
+        
+        <set name="menu" table="DishMenu" cascade="all">
+        <key column="catId" not-null="true"/>
+            <many-to-many column="dish_name" class="ResMenu" unique="true"/>
+        </set>
+    </class>
+
+</hibernate-mapping>
